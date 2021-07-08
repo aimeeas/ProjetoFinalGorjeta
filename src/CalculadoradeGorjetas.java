@@ -202,16 +202,20 @@ public class CalculadoradeGorjetas extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
     double valorConta;
     double valorPorcentagem;
     
     
+    
     private void btn_calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calcularActionPerformed
         valorConta = Double.parseDouble(field_ValordaConta.getText());
         valorPorcentagem = Double.parseDouble(field_PorcentagemGorjeta.getText());
-        double valorDaGorjeta = valorConta*valorPorcentagem/100;
+        double valorGorjetaDesejada;
+        valorGorjetaDesejada = Double.parseDouble(field_GorjetaDesejada.getText());
+        double valorDaGorjeta = (valorConta*valorPorcentagem/100);
         t_ResultadoValordaGorjeta.setText(String.valueOf(valorDaGorjeta));
         double valorTotal = valorConta+(valorConta*valorPorcentagem/100);
         t_ResultadoValorTotal.setText(String.valueOf(valorTotal));
@@ -231,10 +235,17 @@ public class CalculadoradeGorjetas extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_SairActionPerformed
 
     private void field_GorjetaDesejadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_GorjetaDesejadaActionPerformed
-        // TODO add your handling code here:
+       valorConta = Double.parseDouble(field_ValordaConta.getText());
+       double valorGorjetaDesejada;
+       valorGorjetaDesejada = Double.parseDouble(field_GorjetaDesejada.getText());
+       double valorConversao;
+       valorConversao = (valorGorjetaDesejada/valorConta)*100;
+       field_PorcentagemGorjeta.setText (String.valueOf(valorConversao));      
     }//GEN-LAST:event_field_GorjetaDesejadaActionPerformed
 
     private void field_PorcentagemGorjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_PorcentagemGorjetaActionPerformed
+        valorConta = Double.parseDouble(field_ValordaConta.getText());
+        valorPorcentagem = Double.parseDouble(field_PorcentagemGorjeta.getText());
         double valorDaGorjeta = valorConta*valorPorcentagem/100;
         field_GorjetaDesejada.setText (String.valueOf(valorDaGorjeta));
     }//GEN-LAST:event_field_PorcentagemGorjetaActionPerformed
