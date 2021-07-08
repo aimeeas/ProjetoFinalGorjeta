@@ -206,11 +206,12 @@ public class CalculadoradeGorjetas extends javax.swing.JFrame {
     
     double valorConta;
     double valorPorcentagem;
-    double valorDaGorjeta  = valorConta*valorPorcentagem/100;
+    
     
     private void btn_calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calcularActionPerformed
         valorConta = Double.parseDouble(field_ValordaConta.getText());
         valorPorcentagem = Double.parseDouble(field_PorcentagemGorjeta.getText());
+        double valorDaGorjeta = valorConta*valorPorcentagem/100;
         t_ResultadoValordaGorjeta.setText(String.valueOf(valorDaGorjeta));
         double valorTotal = valorConta+(valorConta*valorPorcentagem/100);
         t_ResultadoValorTotal.setText(String.valueOf(valorTotal));
@@ -234,6 +235,7 @@ public class CalculadoradeGorjetas extends javax.swing.JFrame {
     }//GEN-LAST:event_field_GorjetaDesejadaActionPerformed
 
     private void field_PorcentagemGorjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_PorcentagemGorjetaActionPerformed
+        double valorDaGorjeta = valorConta*valorPorcentagem/100;
         field_GorjetaDesejada.setText (String.valueOf(valorDaGorjeta));
     }//GEN-LAST:event_field_PorcentagemGorjetaActionPerformed
 
