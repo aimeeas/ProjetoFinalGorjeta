@@ -204,15 +204,131 @@ public class CalculadoradeGorjetas extends javax.swing.JFrame {
     
     
     private void btn_calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calcularActionPerformed
-        double valorTotal;
+  
         
-        if (field_ValordaConta.getText() != "" && field_GorjetaDesejada.getText() != "") {
+        
+        double valorDaConta;
+        valorDaConta = Double.parseDouble(field_ValordaConta.getText());
+        
+        double valorDaPorcentagem; 
+        
+        double valorDaGorjeta;
+        
+        
+        if (field_PorcentagemGorjeta.getText() != "") {
+            valorDaPorcentagem = Double.parseDouble(field_PorcentagemGorjeta.getText());
+            double valorTotal;
+            valorTotal = valorDaConta + (valorDaConta*valorDaPorcentagem/100);
+            t_ResultadoValorTotal.setText (String.valueOf(valorTotal));
+            valorDaGorjeta = valorDaConta*valorDaPorcentagem/100;
+            t_ResultadoValordaGorjeta.setText(String.valueOf(valorDaGorjeta));
+        } 
+        
+        if (field_GorjetaDesejada.getText() != "") {
+            valorDaGorjeta = Double.parseDouble(field_GorjetaDesejada.getText());
+            double valorTotal;
+            valorTotal = valorDaConta + valorDaGorjeta;
+            t_ResultadoValorTotal.setText (String.valueOf(valorTotal));
+            
+        }
+        
+        
+        
+        
+        
+        /*
+        double valorTotal1;
+        valorTotal1 = valorDaConta + (valorDaConta*valorDaPorcentagem/100);
+                
+        double valorTotal2;
+        valorTotal2 = valorDaConta + valorDaGorjeta;
+        
+        
+        if (String.valueOf(valorTotal1) != "") {
+            t_ResultadoValorTotal.setText (String.valueOf(valorTotal1));
+        } else if (String.valueOf(valorTotal1) == "") {
+            t_ResultadoValorTotal.setText (String.valueOf(valorTotal2));
+        }
+        
+        /* double valorDaConta;
+        valorDaConta = Double.parseDouble(field_ValordaConta.getText());
+        
+        double valorDaPorcentagem;
+        valorDaPorcentagem = Double.parseDouble(field_PorcentagemGorjeta.getText());
+        
+        double valorDaGorjeta;
+        valorDaGorjeta = Double.parseDouble(field_GorjetaDesejada.getText());
+        
+        if (String.valueOf(valorDaConta) != "" && String.valueOf(valorDaPorcentagem) != "") {
+            double valorTotal1;
+            valorTotal1 = valorDaConta + (valorDaConta*valorDaPorcentagem/100);
+            t_ResultadoValorTotal.setText (String.valueOf(valorTotal1));
+        } else if (String.valueOf(valorDaConta) != "" && String.valueOf(valorDaGorjeta) != ""){
+            double valorTotal2;
+            valorTotal2 = valorDaConta + valorDaGorjeta;
+            t_ResultadoValorTotal.setText(String.valueOf(valorTotal2));
+        }
+        
+     
+        
+        
+        
+      /*  double valorDaConta;
+        valorDaConta = Double.parseDouble(field_ValordaConta.getText());
+        
+        double valorDaPorcentagem;
+        valorDaPorcentagem = Double.parseDouble(field_PorcentagemGorjeta.getText());
+        
+        double valorDaGorjeta;
+        valorDaGorjeta = Double.parseDouble(field_GorjetaDesejada.getText());
+        
+        double valorTotal1;
+        valorTotal1 = valorDaConta + (valorDaConta*valorDaPorcentagem/100);
+                
+        double valorTotal2;
+        valorTotal2 = valorDaConta + valorDaGorjeta;
+        
+        
+        
+        if (String.valueOf(valorTotal1) != "") {
+            t_ResultadoValorTotal.setText (String.valueOf(valorTotal1));
+        } else if (String.valueOf(valorTotal2) != "") {
+            t_ResultadoValorTotal.setText(String.valueOf(valorTotal2));
+        }
+        
+        
+        */
+        
+        /* double valorTotal;
+        double valorTotal2;
+        
+        if  (field_ValordaConta.getText()!= "" && field_GorjetaDesejada.getText()!= "") {
             double valorConta = Double.parseDouble(field_ValordaConta.getText());
             double valorGorjetaDesejada = Double.parseDouble(field_GorjetaDesejada.getText());
             valorTotal = valorConta + valorGorjetaDesejada;
             t_ResultadoValorTotal.setText(String.valueOf(valorTotal));
-        } 
-        /*else if (field_ValordaConta.getText() != "" && field_PorcentagemGorjeta.getText() != ""); {
+        } else if (field_ValordaConta.getText()!= "" && field_PorcentagemGorjeta.getText() != "") {
+            double valorConta = Double.parseDouble(field_ValordaConta.getText());
+            double valorPorcentagemGorjeta = Double.parseDouble(field_PorcentagemGorjeta.getText());
+            valorTotal2 = valorConta + (valorConta*valorPorcentagemGorjeta/100);
+            t_ResultadoValorTotal.setText(String.valueOf(valorTotal2));
+        }
+        /* double valorTotal;
+        double valorTotal2;
+        
+        if (field_ValordaConta.getText()!= "" && field_GorjetaDesejada.getText()!= "") {
+            double valorConta = Double.parseDouble(field_ValordaConta.getText());
+            double valorGorjetaDesejada = Double.parseDouble(field_GorjetaDesejada.getText());
+            valorTotal = valorConta + valorGorjetaDesejada;
+            t_ResultadoValorTotal.setText(String.valueOf(valorTotal));
+        } else if (field_ValordaConta.getText() != "" && field_PorcentagemGorjeta.getText() != "") {
+            double valorConta = Double.parseDouble(field_ValordaConta.getText());
+            double valorPorcentagemGorjeta = Double.parseDouble(field_PorcentagemGorjeta.getText());
+            valorTotal2 = valorConta + (valorConta*valorPorcentagemGorjeta/100);
+            t_ResultadoValorTotal.setText (String.valueOf(valorTotal2));
+        }
+        
+        /*else if (field_ValordaConta.getText()!= "" && field_PorcentagemGorjeta.getText()!= ""); {
             double valorConta = Double.parseDouble(field_ValordaConta.getText());
             double valorPorcentagem = Double.parseDouble(field_PorcentagemGorjeta.getText());
             valorTotal = valorConta + (valorConta*valorPorcentagem/100);
