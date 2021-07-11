@@ -205,30 +205,81 @@ public class CalculadoradeGorjetas extends javax.swing.JFrame {
     
     private void btn_calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calcularActionPerformed
   
+        /*double valorDaConta = Double.parseDouble(field_ValordaConta.getText());
+        double valorDaPorcentagem = Double.parseDouble(field_PorcentagemGorjeta.getText());
+        double valorDaGorjetaD = Double.parseDouble(field_GorjetaDesejada.getText());
         
+        if (field_ValordaConta.getText() != "" && field_PorcentagemGorjeta.getText() != "") {
+           double gorjeta = valorDaConta*(valorDaPorcentagem/100);
+           double valorTotal = valorDaConta + gorjeta;
+           t_ResultadoValordaGorjeta.setText(gorjeta+"");
+           t_ResultadoValorTotal.setText(valorTotal+"");
+           
+        } */
+        
+        
+        /*double valorDaConta;
+        valorDaConta = Double.parseDouble(field_ValordaConta.getText());
+        
+        double valorDaPorcentagem;
+        valorDaPorcentagem = Double.parseDouble(field_PorcentagemGorjeta.getText());
+        
+        double valorDaGorjetaDesejada;
+        valorDaGorjetaDesejada = Double.parseDouble(field_GorjetaDesejada.getText());
+        
+        double valorTotal1;
+        valorTotal1 = valorDaConta + (valorDaConta*valorDaPorcentagem/100);
+        
+        double valorTotal2;
+        valorTotal2 = valorDaConta + valorDaGorjetaDesejada;
+        
+        
+            
+        if (String.valueOf(valorTotal1).isEmpty()) {
+            double valorDaGorjeta;
+            valorDaGorjeta = valorDaConta*valorDaPorcentagem/100;
+            t_ResultadoValordaGorjeta.setText(String.valueOf(valorDaGorjeta));
+            t_ResultadoValorTotal.setText(String.valueOf(valorTotal1));
+                    
+        }        
+        
+        /* else if (field_GorjetaDesejada.getText() != "" && field_ValordaConta.getText() != "") {
+            
+            valorDaGorjeta = Double.parseDouble(field_GorjetaDesejada.getText());
+            double valorTotal;
+            valorTotal = valorDaConta + valorDaGorjeta;
+            t_ResultadoValorTotal.setText (String.valueOf(valorTotal));
+            //valorDaGorjeta = valorDaConta*valorDaPorcentagem/100;
+            t_ResultadoValordaGorjeta.setText(String.valueOf(valorDaGorjeta));
+            
+        } */
         
         double valorDaConta;
         valorDaConta = Double.parseDouble(field_ValordaConta.getText());
         
-        double valorDaPorcentagem; 
+        double valorDaPorcentagem = 0; 
         
-        double valorDaGorjeta;
+        double valorDaGorjeta = 0;
         
         
-        if (field_PorcentagemGorjeta.getText() != "") {
+        if (field_GorjetaDesejada.getText().isEmpty()) {
             valorDaPorcentagem = Double.parseDouble(field_PorcentagemGorjeta.getText());
             double valorTotal;
             valorTotal = valorDaConta + (valorDaConta*valorDaPorcentagem/100);
             t_ResultadoValorTotal.setText (String.valueOf(valorTotal));
             valorDaGorjeta = valorDaConta*valorDaPorcentagem/100;
             t_ResultadoValordaGorjeta.setText(String.valueOf(valorDaGorjeta));
-        } 
+                    
+        }        
         
-        if (field_GorjetaDesejada.getText() != "") {
+        else /*if (field_PorcentagemGorjeta.getText().isEmpty())*/ {
+            
             valorDaGorjeta = Double.parseDouble(field_GorjetaDesejada.getText());
             double valorTotal;
             valorTotal = valorDaConta + valorDaGorjeta;
             t_ResultadoValorTotal.setText (String.valueOf(valorTotal));
+            //valorDaGorjeta = valorDaConta*valorDaPorcentagem/100;
+            t_ResultadoValordaGorjeta.setText(String.valueOf(valorDaGorjeta));
             
         }
         
@@ -369,14 +420,14 @@ public class CalculadoradeGorjetas extends javax.swing.JFrame {
        valorGorjetaDesejada = Double.parseDouble(field_GorjetaDesejada.getText());
        double valorConversao;
        valorConversao = (valorGorjetaDesejada/valorConta)*100;
-       field_PorcentagemGorjeta.setText (String.valueOf(valorConversao));      
+       field_PorcentagemGorjeta.setText (String.valueOf(valorConversao));     
     }//GEN-LAST:event_field_GorjetaDesejadaActionPerformed
 
     private void field_PorcentagemGorjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_PorcentagemGorjetaActionPerformed
         valorConta = Double.parseDouble(field_ValordaConta.getText());
         valorPorcentagem = Double.parseDouble(field_PorcentagemGorjeta.getText());
         double valorDaGorjeta = valorConta*valorPorcentagem/100;
-        field_GorjetaDesejada.setText (String.valueOf(valorDaGorjeta));
+        field_GorjetaDesejada.setText (String.valueOf(valorDaGorjeta)); 
     }//GEN-LAST:event_field_PorcentagemGorjetaActionPerformed
 
     /**
